@@ -9,9 +9,7 @@ body {
     color: #222;
 }
 
-
-/* ================= HEADER ================= */
-
+/* HEADER */
 header {
     background: #1565c0;
     color: white;
@@ -27,19 +25,14 @@ header h1 {
     font-size: 17px;
 }
 
-
-/* ================= NAVIGATION ================= */
-
+/* MENU */
 nav {
     display: flex;
     justify-content: center;
     gap: 5px;
-
     background: white;
     padding: 10px;
-
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-
     position: sticky;
     top: 0;
     z-index: 10;
@@ -48,24 +41,18 @@ nav {
 nav button {
     border: none;
     background: transparent;
-
     color: #1565c0;
-
     padding: 10px 12px;
-
     font-size: 14px;
     font-weight: bold;
+    cursor: pointer;
 }
 
-
-/* ================= PAGES ================= */
-
+/* PAGE */
 .page {
     display: none;
-
     width: 95%;
     max-width: 900px;
-
     margin: 25px auto;
 }
 
@@ -73,18 +60,12 @@ nav button {
     display: block;
 }
 
-
-/* ================= ACCUEIL ================= */
-
+/* ACCUEIL */
 .accueil {
     background: white;
-
     text-align: center;
-
     padding: 50px 20px;
-
     border-radius: 20px;
-
     box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
@@ -101,9 +82,7 @@ nav button {
     line-height: 1.6;
 }
 
-
-/* ================= PRODUITS ================= */
-
+/* PRODUITS */
 #produits h2 {
     text-align: center;
     color: #1565c0;
@@ -111,21 +90,15 @@ nav button {
 
 .produits {
     display: grid;
-
     grid-template-columns: repeat(2, 1fr);
-
     gap: 15px;
 }
 
 .produit {
     background: white;
-
     padding: 18px;
-
     text-align: center;
-
     border-radius: 15px;
-
     box-shadow: 0 3px 10px rgba(0,0,0,0.15);
 }
 
@@ -144,38 +117,24 @@ nav button {
     font-size: 17px;
 }
 
-
-/* ================= BOUTONS ================= */
-
-button {
-    cursor: pointer;
-}
-
+/* BOUTONS */
 .produit button,
 .btn-principal,
 .btn-commande {
     border: none;
-
     padding: 12px 18px;
-
     border-radius: 8px;
-
     background: #1565c0;
-
     color: white;
-
     font-size: 14px;
+    cursor: pointer;
 }
 
-.produit button:active,
-.btn-principal:active,
-.btn-commande:active {
+button:active {
     transform: scale(0.95);
 }
 
-
-/* ================= PANIER ================= */
-
+/* PANIER */
 #panier h2 {
     text-align: center;
     color: #1565c0;
@@ -183,38 +142,27 @@ button {
 
 .article-panier {
     display: flex;
-
     justify-content: space-between;
     align-items: center;
-
     background: white;
-
     padding: 15px;
-
     margin-bottom: 10px;
-
     border-radius: 10px;
-
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .article-panier button {
     border: none;
-
     background: #e53935;
-
     color: white;
-
     padding: 7px 10px;
-
     border-radius: 6px;
+    cursor: pointer;
 }
 
 .total {
     background: white;
-
     padding: 15px;
-
     border-radius: 10px;
 }
 
@@ -224,24 +172,16 @@ button {
 
 .vide {
     text-align: center;
-
     background: white;
-
     padding: 30px;
-
     border-radius: 10px;
 }
 
-
-/* ================= CONTACT ================= */
-
+/* CONTACT */
 .contact {
     background: white;
-
     padding: 30px;
-
     border-radius: 15px;
-
     box-shadow: 0 3px 10px rgba(0,0,0,0.15);
 }
 
@@ -249,9 +189,7 @@ button {
     color: #1565c0;
 }
 
-
-/* ================= MOBILE ================= */
-
+/* TELEPHONE */
 @media (max-width: 500px) {
 
     nav {
@@ -270,5 +208,4 @@ button {
     .article-panier {
         gap: 10px;
     }
-
 }
