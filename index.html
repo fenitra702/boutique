@@ -22,23 +22,18 @@
 <body>
 
     <!-- HEADER -->
-
     <header>
-
         <h1>🛍️ MA BOUTIQUE</h1>
 
         <div class="panier-top">
             🛒 Panier :
             <span id="nombrePanier">0</span>
         </div>
-
     </header>
 
 
     <!-- MENU -->
-
     <nav>
-
         <button onclick="afficherPage('accueil')">
             🏠 Accueil
         </button>
@@ -54,17 +49,216 @@
         <button onclick="afficherPage('contact')">
             📞 Contact
         </button>
-
     </nav>
 
 
     <!-- ACCUEIL -->
-
-    <section id="accueil"
-             class="page active">
+    <section id="accueil" class="page active">
 
         <div class="accueil">
 
+            <div class="logo">
+                🛍️
+            </div>
+
+            <h2>
+                Bienvenue dans notre boutique
+            </h2>
+
+            <p>
+                Découvrez nos produits
+                de qualité aux meilleurs prix.
+            </p>
+
+            <button class="btn-principal"
+                    onclick="afficherPage('produits')">
+
+                VOIR LES PRODUITS
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUITS -->
+    <section id="produits" class="page">
+
+        <h2>🛍️ Nos produits</h2>
+
+        <div class="produits">
+
+            <!-- PRODUIT 1 -->
+            <div class="produit">
+
+                <div class="image">
+                    👕
+                </div>
+
+                <h3>T-shirt</h3>
+
+                <p>25 000 Ar</p>
+
+                <button
+                    onclick="ajouterPanier('T-shirt', 25000)">
+
+                    Ajouter au panier
+
+                </button>
+
+            </div>
+
+
+            <!-- PRODUIT 2 -->
+            <div class="produit">
+
+                <div class="image">
+                    👟
+                </div>
+
+                <h3>Chaussure</h3>
+
+                <p>80 000 Ar</p>
+
+                <button
+                    onclick="ajouterPanier('Chaussure', 80000)">
+
+                    Ajouter au panier
+
+                </button>
+
+            </div>
+
+
+            <!-- PRODUIT 3 -->
+            <div class="produit">
+
+                <div class="image">
+                    🎒
+                </div>
+
+                <h3>Sac</h3>
+
+                <p>45 000 Ar</p>
+
+                <button
+                    onclick="ajouterPanier('Sac', 45000)">
+
+                    Ajouter au panier
+
+                </button>
+
+            </div>
+
+
+            <!-- PRODUIT 4 -->
+            <div class="produit">
+
+                <div class="image">
+                    ⌚
+                </div>
+
+                <h3>Montre</h3>
+
+                <p>60 000 Ar</p>
+
+                <button
+                    onclick="ajouterPanier('Montre', 60000)">
+
+                    Ajouter au panier
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PANIER -->
+    <section id="panier" class="page">
+
+        <h2>🛒 Mon panier</h2>
+
+        <div id="listePanier">
+
+            <p class="vide">
+                Votre panier est vide.
+            </p>
+
+        </div>
+
+        <h3 class="total">
+
+            Total :
+            <span id="total">0</span> Ar
+
+        </h3>
+
+        <button class="btn-commande"
+                onclick="commander()">
+
+            COMMANDER
+
+        </button>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="page">
+
+        <div class="contact">
+
+            <h2>📞 Contact</h2>
+
+            <p>
+                📍 Antananarivo, Madagascar
+            </p>
+
+            <p>
+                📱 Téléphone :
+                034 00 000 00
+            </p>
+
+            <p>
+                📧 Email :
+                maboutique@gmail.com
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+
+    <!-- SERVICE WORKER -->
+    <script>
+
+        if ("serviceWorker" in navigator) {
+
+            navigator.serviceWorker.register("sw.js")
+                .catch(function(error) {
+
+                    console.log(
+                        "Erreur Service Worker :",
+                        error
+                    );
+
+                });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
             <div class="logo">
                 🛍️
             </div>
