@@ -1,29 +1,57 @@
-const CACHE_NAME = "boutique-v1";
+const CACHE_NAME = "boutique-v2";
 
 const FILES = [
     "./",
     "./index.html",
     "./style.css",
     "./script.js",
-    "./manifest.json"
+    "./manifest.json",
+    "./sw.js"
 ];
 
-self.addEventListener("install", event => {
+self.addEventListener("install", function(event) {
 
     event.waitUntil(
         caches.open(CACHE_NAME)
-        .then(cache => cache.addAll(FILES))
+            .then(function(cache) {
+                return cache.addAll(FILES);
+            })
     );
 
+    self.skipWaiting();
 });
 
-self.addEventListener("fetch", event => {
+self.addEventListener("activate", function(event) {
 
-    event.respondWith(
-        caches.match(event.request)
-        .then(response => {
-            return response || fetch(event.request);
+    event.waitUntil(
+        caches.keys().then(function(keys) {
+
+            return Promise.all(
+                keys.map(function(key) {
+
+                    if (key !== CACHE_NAME) {
+                        return caches.delete(key);
+                    }
+
+                })
+            );
+
         })
     );
 
+    self.clients.claim();
+});
+
+self.addEventListener("fetch", function(event) {
+
+    event.respondWith(
+
+        caches.match(event.request)
+            .then(function(response) {
+
+                return response || fetch(event.request);
+
+            })
+
+    );
 });
