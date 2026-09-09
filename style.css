@@ -1,0 +1,274 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+}
+
+
+/* ================= HEADER ================= */
+
+header {
+    background: #1565c0;
+    color: white;
+    padding: 18px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0 0 8px;
+}
+
+.panier-top {
+    font-size: 17px;
+}
+
+
+/* ================= NAVIGATION ================= */
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+
+    background: white;
+    padding: 10px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav button {
+    border: none;
+    background: transparent;
+
+    color: #1565c0;
+
+    padding: 10px 12px;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* ================= PAGES ================= */
+
+.page {
+    display: none;
+
+    width: 95%;
+    max-width: 900px;
+
+    margin: 25px auto;
+}
+
+.page.active {
+    display: block;
+}
+
+
+/* ================= ACCUEIL ================= */
+
+.accueil {
+    background: white;
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.logo {
+    font-size: 80px;
+}
+
+.accueil h2 {
+    color: #1565c0;
+}
+
+.accueil p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+
+/* ================= PRODUITS ================= */
+
+#produits h2 {
+    text-align: center;
+    color: #1565c0;
+}
+
+.produits {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.produit {
+    background: white;
+
+    padding: 18px;
+
+    text-align: center;
+
+    border-radius: 15px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+.image {
+    font-size: 70px;
+    padding: 10px;
+}
+
+.produit h3 {
+    margin: 8px 0;
+}
+
+.produit p {
+    color: #1565c0;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+
+/* ================= BOUTONS ================= */
+
+button {
+    cursor: pointer;
+}
+
+.produit button,
+.btn-principal,
+.btn-commande {
+    border: none;
+
+    padding: 12px 18px;
+
+    border-radius: 8px;
+
+    background: #1565c0;
+
+    color: white;
+
+    font-size: 14px;
+}
+
+.produit button:active,
+.btn-principal:active,
+.btn-commande:active {
+    transform: scale(0.95);
+}
+
+
+/* ================= PANIER ================= */
+
+#panier h2 {
+    text-align: center;
+    color: #1565c0;
+}
+
+.article-panier {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    background: white;
+
+    padding: 15px;
+
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.article-panier button {
+    border: none;
+
+    background: #e53935;
+
+    color: white;
+
+    padding: 7px 10px;
+
+    border-radius: 6px;
+}
+
+.total {
+    background: white;
+
+    padding: 15px;
+
+    border-radius: 10px;
+}
+
+.btn-commande {
+    width: 100%;
+}
+
+.vide {
+    text-align: center;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 10px;
+}
+
+
+/* ================= CONTACT ================= */
+
+.contact {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+.contact h2 {
+    color: #1565c0;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 500px) {
+
+    nav {
+        flex-wrap: wrap;
+    }
+
+    nav button {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .produits {
+        grid-template-columns: 1fr;
+    }
+
+    .article-panier {
+        gap: 10px;
+    }
+
+}
