@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+          content="#1565c0">
+
+    <link rel="manifest"
+          href="manifest.json">
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <title>Ma Boutique</title>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <h1>🛍️ MA BOUTIQUE</h1>
+
+        <div class="panier-top">
+            🛒 Panier :
+            <span id="nombrePanier">0</span>
+        </div>
+
+    </header>
+
+
+    <!-- MENU -->
+
+    <nav>
+
+        <button onclick="afficherPage('accueil')">
+            🏠 Accueil
+        </button>
+
+        <button onclick="afficherPage('produits')">
+            🛍️ Produits
+        </button>
+
+        <button onclick="afficherPage('panier')">
+            🛒 Panier
+        </button>
+
+        <button onclick="afficherPage('contact')">
+            📞 Contact
+        </button>
+
+    </nav>
+
+
+    <!-- ACCUEIL -->
+
+    <section id="accueil"
+             class="page active">
+
+        <div class="accueil">
+
+            <div class="logo">
+                🛍️
+            </div>
+
+            <h2>
+                Bienvenue dans notre
