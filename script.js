@@ -1,72 +1,49 @@
-// ================= PANIER =================
-
 let panier = [];
 
-
-// ================= AFFICHER UNE PAGE =================
-
+/* AFFICHER PAGE */
 function afficherPage(nomPage) {
 
     const pages = document.querySelectorAll(".page");
 
     pages.forEach(function(page) {
-
         page.classList.remove("active");
-
     });
-
 
     const page = document.getElementById(nomPage);
 
     if (page) {
-
         page.classList.add("active");
-
     }
 
-
-    // Actualiser le panier
-
     afficherPanier();
-
 }
 
-
-// ================= AJOUTER AU PANIER =================
-
+/* AJOUTER PRODUIT */
 function ajouterPanier(nom, prix) {
 
     panier.push({
-
         nom: nom,
         prix: prix
-
     });
 
-
     sauvegarderPanier();
-
     afficherPanier();
 
-
     alert(nom + " a été ajouté au panier !");
-
 }
 
-
-// ================= AFFICHER PANIER =================
-
+/* AFFICHER PANIER */
 function afficherPanier() {
 
     const liste = document.getElementById("listePanier");
-
     const compteur = document.getElementById("nombrePanier");
-
     const totalElement = document.getElementById("total");
 
+    if (!liste || !compteur || !totalElement) {
+        return;
+    }
 
     compteur.textContent = panier.length;
-
 
     if (panier.length === 0) {
 
@@ -76,105 +53,76 @@ function afficherPanier() {
         totalElement.textContent = "0";
 
         return;
-
     }
-
 
     liste.innerHTML = "";
 
-
     let total = 0;
-
 
     panier.forEach(function(produit, index) {
 
         total += produit.prix;
 
-
         const article = document.createElement("div");
 
         article.className = "article-panier";
 
-
         article.innerHTML = `
-
             <div>
-
                 <strong>${produit.nom}</strong>
-
                 <br>
-
-                ${produit.prix.toLocaleString()} Ar
-
+                ${produit.prix.toLocaleString("fr-FR")} Ar
             </div>
 
             <button onclick="supprimerProduit(${index})">
-
                 Supprimer
-
             </button>
-
         `;
 
-
         liste.appendChild(article);
-
     });
 
-
     totalElement.textContent =
-        total.toLocaleString();
-
+        total.toLocaleString("fr-FR");
 }
 
-
-// ================= SUPPRIMER =================
-
+/* SUPPRIMER */
 function supprimerProduit(index) {
 
     panier.splice(index, 1);
 
     sauvegarderPanier();
-
     afficherPanier();
-
 }
 
-
-// ================= SAUVEGARDER =================
-
+/* SAUVEGARDER */
 function sauvegarderPanier() {
 
     localStorage.setItem(
         "panierBoutique",
         JSON.stringify(panier)
     );
-
 }
 
-
-// ================= CHARGER =================
-
+/* CHARGER */
 function chargerPanier() {
 
     const donnees =
         localStorage.getItem("panierBoutique");
 
-
     if (donnees) {
 
-        panier = JSON.parse(donnees);
-
+        try {
+            panier = JSON.parse(donnees);
+        } catch (erreur) {
+            panier = [];
+        }
     }
 
-
     afficherPanier();
-
 }
 
-
-// ================= COMMANDER =================
-
+/* COMMANDER */
 function commander() {
 
     if (panier.length === 0) {
@@ -182,19 +130,18 @@ function commander() {
         alert("Votre panier est vide !");
 
         return;
-
     }
-
 
     alert(
         "Merci pour votre commande ! 🛍️"
     );
-
 }
 
+/* DEMARRAGE */
+document.addEventListener("DOMContentLoaded", function() {
 
-// ================= DEMARRAGE =================
+    chargerPanier();
 
-chargerPanier();
+    afficherPage("accueil");
 
-afficherPage("accueil");
+});
