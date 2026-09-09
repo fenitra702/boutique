@@ -3,8 +3,10 @@
     "short_name": "Boutique",
     "description": "Application de ma boutique",
     "start_url": "./index.html",
+    "scope": "./",
     "display": "standalone",
     "background_color": "#f5f5f5",
     "theme_color": "#1565c0",
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "icons": []
 }
